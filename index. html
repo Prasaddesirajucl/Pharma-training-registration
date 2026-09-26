@@ -1,1 +1,425 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pharma Training Registration</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f6fa;
+    color: #1d2939;
+}
+
+.container {
+    max-width: 650px;
+    margin: 30px auto;
+    padding: 15px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    margin: 0;
+    color: #064b8e;
+    font-size: 28px;
+}
+
+.header p {
+    color: #667085;
+}
+
+.price {
+    text-align: center;
+    background: #eef7ff;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 25px;
+}
+
+.price strong {
+    display: block;
+    font-size: 30px;
+    color: #064b8e;
+}
+
+.step {
+    margin-bottom: 25px;
+}
+
+.step-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.payment-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #064b8e;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.payment-btn:hover {
+    background: #043766;
+}
+
+.security {
+    text-align: center;
+    font-size: 13px;
+    color: #667085;
+    margin-top: 10px;
+}
+
+#registrationForm {
+    display: none;
+    margin-top: 25px;
+}
+
+.success {
+    display: none;
+    background: #ecfdf3;
+    border: 1px solid #abefc6;
+    color: #067647;
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d0d5dd;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #064b8e;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #0b7a4b;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-btn:disabled {
+    background: #98a2b3;
+    cursor: not-allowed;
+}
+
+.note {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #667085;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #667085;
+    font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<div class="header">
+    <h1>Pharma Training Registration</h1>
+    <p>Professional Pharmaceutical Training Program</p>
+</div>
+
+<div class="price">
+    Training Registration Fee
+    <strong>₹199</strong>
+    Secure payment through Razorpay
+</div>
+
+
+<!-- PAYMENT SECTION -->
+
+<div class="step">
+
+<div class="step-title">
+    Step 1 — Complete Payment
+</div>
+
+<a
+href="https://rzp.io/rzp/QKFruv7p"
+target="_blank"
+rel="noopener noreferrer"
+class="payment-btn"
+onclick="startPayment()">
+
+    💳 PAY ₹199 NOW
+
+</a>
+
+<div class="security">
+    🔒 Payment is processed through Razorpay.
+</div>
+
+</div>
+
+
+<!-- PAYMENT RETURN BUTTON -->
+
+<div id="paymentReturn" style="display:none;">
+
+    <div class="success">
+        Payment page completed. Please continue to registration.
+    </div>
+
+    <button
+        class="payment-btn"
+        onclick="showRegistration()">
+
+        Continue to Registration
+
+    </button>
+
+</div>
+
+
+<!-- REGISTRATION FORM -->
+
+<div id="registrationForm">
+
+<div class="step-title">
+    Step 2 — Participant Registration
+</div>
+
+<form id="regForm">
+
+<label>Full Name *</label>
+<input
+type="text"
+name="fullName"
+required
+placeholder="Enter your full name">
+
+
+<label>Email Address *</label>
+<input
+type="email"
+name="email"
+required
+placeholder="Enter your email">
+
+
+<label>WhatsApp / Mobile Number *</label>
+<input
+type="tel"
+name="mobile"
+required
+placeholder="Enter your mobile number">
+
+
+<label>Qualification *</label>
+<input
+type="text"
+name="qualification"
+required
+placeholder="B.Pharm / M.Pharm / B.Tech / etc.">
+
+
+<label>Organization</label>
+<input
+type="text"
+name="organization"
+placeholder="Company / College">
+
+
+<label>Experience</label>
+<select name="experience">
+
+<option value="">Select</option>
+<option>Fresher</option>
+<option>0–2 Years</option>
+<option>2–5 Years</option>
+<option>5–10 Years</option>
+<option>10+ Years</option>
+
+</select>
+
+
+<label>City</label>
+<input
+type="text"
+name="city"
+placeholder="Enter your city">
+
+
+<label>Training Program *</label>
+<select name="training"
+required>
+
+<option value="">Select Training</option>
+
+<option>
+Pharmaceutical Quality Assurance Training
+</option>
+
+<option>
+Computer System Validation (CSV)
+</option>
+
+<option>
+GMP / Quality Systems Training
+</option>
+
+</select>
+
+
+<label>Razorpay Payment ID *</label>
+<input
+type="text"
+name="paymentId"
+required
+placeholder="Enter Razorpay Payment ID">
+
+
+<div class="note">
+
+⚠️ Please enter the Payment ID shown by Razorpay after completing your payment.
+
+</div>
+
+
+<button
+type="submit"
+class="submit-btn">
+
+    SUBMIT REGISTRATION
+
+</button>
+
+</form>
+
+</div>
+
+
+<div class="footer">
+
+© 2026 Pharma Training
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+let paymentStarted = false;
+
+function startPayment() {
+
+    paymentStarted = true;
+
+    localStorage.setItem(
+        "paymentStarted",
+        "true"
+    );
+
+    setTimeout(function() {
+
+        document.getElementById(
+            "paymentReturn"
+        ).style.display = "block";
+
+    }, 1000);
+
+}
+
+
+function showRegistration() {
+
+    document.getElementById(
+        "registrationForm"
+    ).style.display = "block";
+
+    document.getElementById(
+        "paymentReturn"
+    ).style.display = "none";
+
+    window.scrollTo({
+        top: document.getElementById(
+            "registrationForm"
+        ).offsetTop,
+        behavior: "smooth"
+    });
+
+}
+
+
+document.getElementById(
+    "regForm"
+).addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+        alert(
+            "Registration received. Payment verification will be completed."
+        );
+
+    }
+);
+
+</script>
+
+</body>
+</html>
