@@ -1,498 +1,867 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Pharma Training Registration</title>
 
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <style>
+
 * {
   box-sizing: border-box;
 }
 
 body {
+
   margin: 0;
+
   font-family: Arial, sans-serif;
+
   background: #f3f6fb;
+
   color: #222;
+
 }
 
 .container {
+
   max-width: 720px;
+
   margin: 40px auto;
+
   background: white;
+
   padding: 35px;
+
   border-radius: 15px;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+
+  box-shadow:
+    0 5px 25px rgba(0,0,0,0.08);
+
 }
 
 h1 {
+
   text-align: center;
+
   color: #1557a6;
+
   margin-bottom: 8px;
+
 }
 
 .subtitle {
+
   text-align: center;
+
   color: #666;
+
   margin-bottom: 30px;
+
 }
 
 label {
+
   display: block;
+
   font-weight: bold;
+
   margin-top: 18px;
+
   margin-bottom: 7px;
+
 }
 
 input,
 select {
+
   width: 100%;
+
   padding: 13px;
+
   border: 1px solid #ccc;
+
   border-radius: 7px;
+
   font-size: 15px;
+
 }
 
 input:focus,
 select:focus {
+
   outline: none;
+
   border-color: #1976d2;
+
 }
 
 button {
+
   width: 100%;
+
   margin-top: 28px;
+
   padding: 15px;
+
   border: none;
+
   border-radius: 7px;
+
   background: #1976d2;
+
   color: white;
+
   font-size: 17px;
+
   font-weight: bold;
+
   cursor: pointer;
+
 }
 
 button:hover {
+
   background: #1259a3;
+
 }
 
 button:disabled {
+
   background: #999;
+
   cursor: not-allowed;
+
 }
 
 .message {
+
   margin-top: 20px;
+
   padding: 15px;
+
   border-radius: 7px;
+
   display: none;
+
+  line-height: 1.5;
+
 }
 
 .error {
+
   background: #ffe8e8;
+
   color: #b00020;
+
 }
 
 .success {
+
   background: #e7f7ed;
+
   color: #146c2e;
+
 }
 
 .security {
+
   text-align: center;
+
   margin-top: 20px;
+
   color: #666;
+
   font-size: 13px;
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="container">
 
-<h1>Pharma Training Registration</h1>
+
+<h1>
+Pharma Training Registration
+</h1>
+
 
 <div class="subtitle">
 Complete your details and proceed to secure payment
 </div>
 
+
 <form id="registrationForm">
 
-<label>First Name *</label>
-<input type="text" id="firstName" required>
 
-<label>Last Name *</label>
-<input type="text" id="lastName" required>
+<label>
+First Name *
+</label>
 
-<label>Phone Number *</label>
-<input type="tel" id="phone" required
-       pattern="[0-9]{10}"
-       maxlength="10"
-       placeholder="10-digit mobile number">
+<input
+  type="text"
+  id="firstName"
+  required
+>
 
-<label>Email ID *</label>
-<input type="email" id="email" required>
 
-<label>Country *</label>
+<label>
+Last Name *
+</label>
+
+<input
+  type="text"
+  id="lastName"
+  required
+>
+
+
+<label>
+Phone Number *
+</label>
+
+<input
+  type="tel"
+  id="phone"
+  required
+  pattern="[0-9]{10}"
+  maxlength="10"
+  placeholder="10-digit mobile number"
+>
+
+
+<label>
+Email ID *
+</label>
+
+<input
+  type="email"
+  id="email"
+  required
+>
+
+
+<label>
+Country *
+</label>
+
 <select id="country" required>
-  <option value="">Select Country</option>
-  <option value="India">India</option>
-  <option value="United States">United States</option>
-  <option value="United Kingdom">United Kingdom</option>
-  <option value="United Arab Emirates">United Arab Emirates</option>
-  <option value="Other">Other</option>
+
+<option value="">
+Select Country
+</option>
+
+<option value="India">
+India
+</option>
+
+<option value="United States">
+United States
+</option>
+
+<option value="United Kingdom">
+United Kingdom
+</option>
+
+<option value="United Arab Emirates">
+United Arab Emirates
+</option>
+
+<option value="Other">
+Other
+</option>
+
 </select>
 
-<label>Experience *</label>
+
+<label>
+Experience *
+</label>
+
 <select id="experience" required>
-  <option value="">Select Experience</option>
-  <option value="Fresher">Fresher</option>
-  <option value="0-2 Years">0-2 Years</option>
-  <option value="3-5 Years">3-5 Years</option>
-  <option value="6-10 Years">6-10 Years</option>
-  <option value="10+ Years">10+ Years</option>
+
+<option value="">
+Select Experience
+</option>
+
+<option value="Fresher">
+Fresher
+</option>
+
+<option value="0-2 Years">
+0-2 Years
+</option>
+
+<option value="3-5 Years">
+3-5 Years
+</option>
+
+<option value="6-10 Years">
+6-10 Years
+</option>
+
+<option value="10+ Years">
+10+ Years
+</option>
+
 </select>
 
-<label>Department *</label>
+
+<label>
+Department *
+</label>
+
 <select id="department" required>
-  <option value="">Select Department</option>
-  <option value="Quality Assurance">Quality Assurance</option>
-  <option value="Quality Control">Quality Control</option>
-  <option value="Production">Production</option>
-  <option value="Regulatory Affairs">Regulatory Affairs</option>
-  <option value="Warehouse">Warehouse</option>
-  <option value="Engineering">Engineering</option>
-  <option value="Validation">Validation</option>
-  <option value="Other">Other</option>
+
+<option value="">
+Select Department
+</option>
+
+<option value="Quality Assurance">
+Quality Assurance
+</option>
+
+<option value="Quality Control">
+Quality Control
+</option>
+
+<option value="Production">
+Production
+</option>
+
+<option value="Regulatory Affairs">
+Regulatory Affairs
+</option>
+
+<option value="Warehouse">
+Warehouse
+</option>
+
+<option value="Engineering">
+Engineering
+</option>
+
+<option value="Validation">
+Validation
+</option>
+
+<option value="Other">
+Other
+</option>
+
 </select>
 
-<button type="submit" id="payButton">
-  Proceed to Payment – ₹199
+
+<button
+  type="submit"
+  id="payButton"
+>
+Proceed to Payment – ₹199
 </button>
+
 
 </form>
 
-<div id="message" class="message"></div>
+
+<div
+  id="message"
+  class="message"
+></div>
+
 
 <div class="security">
 🔒 Secure payment powered by Razorpay
 </div>
+
 
 </div>
 
 
 <script>
 
-/*
-IMPORTANT:
-Use your RAZORPAY LIVE KEY ID here.
 
-It normally looks like:
-rzp_live_xxxxxxxxxxxxxx
+/****************************************************
+ * APPS SCRIPT WEB APP URL
+ ****************************************************/
 
-DO NOT put your Key Secret here.
-*/
-const RAZORPAY_KEY_ID = "YOUR_LIVE_KEY_ID";
-
-
-/*
-YOUR APPS SCRIPT WEB APP URL
-*/
 const APPS_SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbzPmsfVc7CEv0ZqheawGOwUE_shkVRO6LYNRROhH9BuxkQKkdT-GlAa2ad-Zb_gyZ4s/exec";
 
 
-const form = document.getElementById("registrationForm");
-const payButton = document.getElementById("payButton");
-const message = document.getElementById("message");
+const form =
+document.getElementById(
+  "registrationForm"
+);
 
 
-function showMessage(text, type) {
+const payButton =
+document.getElementById(
+  "payButton"
+);
 
-  message.textContent = text;
 
-  message.className = "message " + type;
+const message =
+document.getElementById(
+  "message"
+);
 
-  message.style.display = "block";
+
+/****************************************************
+ * MESSAGE
+ ****************************************************/
+
+function showMessage(
+  text,
+  type
+) {
+
+  message.textContent =
+    text;
+
+  message.className =
+    "message " + type;
+
+  message.style.display =
+    "block";
+
 }
 
 
-form.addEventListener("submit", async function(e) {
+/****************************************************
+ * FORM SUBMISSION
+ ****************************************************/
 
-  e.preventDefault();
+form.addEventListener(
+  "submit",
+  async function(e) {
 
-  message.style.display = "none";
-
-  payButton.disabled = true;
-
-  payButton.textContent = "Creating secure payment...";
-
-
-  const registrationData = {
-
-    firstName:
-      document.getElementById("firstName").value.trim(),
-
-    lastName:
-      document.getElementById("lastName").value.trim(),
-
-    phone:
-      document.getElementById("phone").value.trim(),
-
-    email:
-      document.getElementById("email").value.trim(),
-
-    country:
-      document.getElementById("country").value,
-
-    experience:
-      document.getElementById("experience").value,
-
-    department:
-      document.getElementById("department").value
-
-  };
+    e.preventDefault();
 
 
-  try {
-
-    /*
-    Send form data to Apps Script.
-
-    The backend will create a UNIQUE Razorpay order.
-    */
-
-    const response = await fetch(APPS_SCRIPT_URL, {
-
-      method: "POST",
-
-      headers: {
-        "Content-Type": "text/plain;charset=utf-8"
-      },
-
-      body: JSON.stringify({
-
-        action: "createOrder",
-
-        data: registrationData
-
-      })
-
-    });
+    message.style.display =
+      "none";
 
 
-    const result = await response.json();
+    payButton.disabled =
+      true;
 
 
-    if (!result.success) {
-
-      throw new Error(
-        result.message || "Unable to create payment"
-      );
-
-    }
+    payButton.textContent =
+      "Creating secure payment...";
 
 
-    /*
-    Razorpay Checkout
-    */
+    /**********************************************
+     * COLLECT DATA
+     **********************************************/
 
-    const options = {
+    const registrationData = {
 
-      key: RAZORPAY_KEY_ID,
+      firstName:
+        document
+          .getElementById("firstName")
+          .value
+          .trim(),
 
-      amount: result.amount,
+      lastName:
+        document
+          .getElementById("lastName")
+          .value
+          .trim(),
 
-      currency: "INR",
+      phone:
+        document
+          .getElementById("phone")
+          .value
+          .trim(),
 
-      name: "S&P Pharma",
+      email:
+        document
+          .getElementById("email")
+          .value
+          .trim(),
 
-      description: "Pharma Training Registration",
+      country:
+        document
+          .getElementById("country")
+          .value,
 
-      order_id: result.orderId,
+      experience:
+        document
+          .getElementById("experience")
+          .value,
 
-      prefill: {
+      department:
+        document
+          .getElementById("department")
+          .value
 
-        name:
-          registrationData.firstName +
-          " " +
-          registrationData.lastName,
-
-        email:
-          registrationData.email,
-
-        contact:
-          registrationData.phone
-
-      },
-
-      theme: {
-
-        color: "#1976d2"
-
-      },
-
-
-      handler: async function(paymentResponse) {
-
-        payButton.disabled = true;
-
-        payButton.textContent =
-          "Verifying payment...";
+    };
 
 
-        try {
+    try {
 
-          const verifyResponse = await fetch(
-            APPS_SCRIPT_URL,
-            {
 
-              method: "POST",
+      /********************************************
+       * CREATE UNIQUE ORDER
+       ********************************************/
 
-              headers: {
-                "Content-Type":
-                  "text/plain;charset=utf-8"
-              },
+      const response =
+        await fetch(
+          APPS_SCRIPT_URL,
+          {
 
-              body: JSON.stringify({
+            method:
+              "POST",
 
-                action: "verifyPayment",
+            headers: {
 
-                registration: registrationData,
+              "Content-Type":
+                "text/plain;charset=utf-8"
 
-                razorpay: paymentResponse
+            },
+
+            body:
+              JSON.stringify({
+
+                action:
+                  "createOrder",
+
+                data:
+                  registrationData
 
               })
 
-            }
-          );
-
-
-          const verifyResult =
-            await verifyResponse.json();
-
-
-          if (!verifyResult.success) {
-
-            throw new Error(
-              verifyResult.message ||
-              "Payment verification failed"
-            );
-
           }
+        );
 
 
-          showMessage(
+      const result =
+        await response.json();
 
-            "Payment successful! Your registration ID is " +
-            verifyResult.registrationId +
-            ". A confirmation email has been sent.",
 
-            "success"
+      console.log(
+        "Create order response:",
+        result
+      );
 
+
+      /********************************************
+       * CHECK RESPONSE
+       ********************************************/
+
+      if (!result.success) {
+
+        throw new Error(
+          result.message ||
+          "Unable to create payment."
+        );
+
+      }
+
+
+      /********************************************
+       * RAZORPAY CHECKOUT
+       ********************************************/
+
+      const options = {
+
+        key:
+          result.keyId,
+
+        amount:
+          result.amount,
+
+        currency:
+          result.currency,
+
+        name:
+          "S&P Pharma",
+
+        description:
+          "Pharma Training Registration",
+
+        order_id:
+          result.orderId,
+
+
+        prefill: {
+
+          name:
+            registrationData.firstName +
+            " " +
+            registrationData.lastName,
+
+          email:
+            registrationData.email,
+
+          contact:
+            registrationData.phone
+
+        },
+
+
+        theme: {
+
+          color:
+            "#1976d2"
+
+        },
+
+
+        /******************************************
+         * PAYMENT SUCCESS
+         ******************************************/
+
+        handler:
+          async function(
+            paymentResponse
+          ) {
+
+
+            payButton.disabled =
+              true;
+
+
+            payButton.textContent =
+              "Verifying payment...";
+
+
+            try {
+
+
+              const verifyResponse =
+                await fetch(
+                  APPS_SCRIPT_URL,
+                  {
+
+                    method:
+                      "POST",
+
+                    headers: {
+
+                      "Content-Type":
+                        "text/plain;charset=utf-8"
+
+                    },
+
+                    body:
+                      JSON.stringify({
+
+                        action:
+                          "verifyPayment",
+
+                        razorpay:
+                          paymentResponse
+
+                      })
+
+                  }
+                );
+
+
+              const verifyResult =
+                await verifyResponse.json();
+
+
+              console.log(
+                "Verify response:",
+                verifyResult
+              );
+
+
+              /**********************************
+               * CHECK VERIFICATION
+               **********************************/
+
+              if (
+                !verifyResult.success
+              ) {
+
+                throw new Error(
+                  verifyResult.message ||
+                  "Payment verification failed."
+                );
+
+              }
+
+
+              /**********************************
+               * SUCCESS
+               **********************************/
+
+              showMessage(
+
+                "Registration successful! " +
+
+                "Registration ID: " +
+
+                verifyResult.registrationId +
+
+                ". A confirmation email has been sent to " +
+
+                registrationData.email,
+
+                "success"
+
+              );
+
+
+              form.reset();
+
+
+              payButton.textContent =
+                "Registration Completed";
+
+
+            }
+
+
+            catch(error) {
+
+
+              console.error(
+                error
+              );
+
+
+              showMessage(
+
+                error.message,
+
+                "error"
+
+              );
+
+
+              payButton.disabled =
+                false;
+
+
+              payButton.textContent =
+                "Try Again";
+
+            }
+
+          },
+
+
+        /******************************************
+         * USER CLOSES PAYMENT
+         ******************************************/
+
+        modal: {
+
+          ondismiss:
+            function() {
+
+              payButton.disabled =
+                false;
+
+              payButton.textContent =
+                "Proceed to Payment – ₹199";
+
+            }
+
+        }
+
+      };
+
+
+      /********************************************
+       * OPEN RAZORPAY
+       ********************************************/
+
+      const razorpay =
+        new Razorpay(
+          options
+        );
+
+
+      /********************************************
+       * PAYMENT FAILED
+       ********************************************/
+
+      razorpay.on(
+        "payment.failed",
+        function(response) {
+
+          console.error(
+            response.error
           );
 
 
-          form.reset();
-
-          payButton.textContent =
-            "Registration Completed";
-
-
-        } catch (error) {
-
-          console.error(error);
-
           showMessage(
 
-            "Payment was received, but verification is still processing. Please do not pay again. Contact support with your Razorpay payment ID: " +
-            paymentResponse.razorpay_payment_id,
+            "Payment failed. Please try again.",
 
             "error"
 
           );
 
-          payButton.disabled = false;
 
-          payButton.textContent =
-            "Try Verification Again";
+          payButton.disabled =
+            false;
 
-        }
-
-      },
-
-
-      modal: {
-
-        ondismiss: function() {
-
-          payButton.disabled = false;
 
           payButton.textContent =
             "Proceed to Payment – ₹199";
 
         }
-
-      }
-
-    };
+      );
 
 
-    const razorpay =
-      new Razorpay(options);
+      razorpay.open();
 
 
-    razorpay.on("payment.failed", function(response) {
+    }
 
-      console.log(response.error);
+
+    catch(error) {
+
+
+      console.error(
+        error
+      );
+
 
       showMessage(
 
-        "Payment failed. Please try again.",
+        error.message ||
+        "Unable to start payment.",
 
         "error"
 
       );
 
-      payButton.disabled = false;
+
+      payButton.disabled =
+        false;
+
 
       payButton.textContent =
         "Proceed to Payment – ₹199";
 
-    });
+    }
 
+  });
 
-    razorpay.open();
-
-
-  } catch (error) {
-
-    console.error(error);
-
-    showMessage(
-
-      error.message ||
-      "Unable to start payment. Please try again.",
-
-      "error"
-
-    );
-
-    payButton.disabled = false;
-
-    payButton.textContent =
-      "Proceed to Payment – ₹199";
-
-  }
-
-});
 
 </script>
 
+
 </body>
+
 </html>
